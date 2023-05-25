@@ -40,6 +40,8 @@ for line in lines:
         booking = json.loads(json.dumps(response.json()))[0]
         # print(booking)
         print("Ticket ID {} spent {} total hours".format(booking["ticketId"], booking["totalHours"]))
+        for t in booking["team"]:
+            print(" {} : {}".format(t["userName"], t["totalHours"]))
 
 
 # curl -X 'GET' 'http://gedapvl395.a.space.corp:5000/api/rawbookings/totals?comment=COS' -H 'accept: application/json'
